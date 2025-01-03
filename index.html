@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Art Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Art Gallery</h1>
+  </header>
+
+  <main>
+    <section id="password-protected">
+      <h2>Enter Password to View Gallery</h2>
+      <form id="password-form">
+        <input type="password" id="password" placeholder="Enter Password" required />
+        <button type="submit">Submit</button>
+      </form>
+      <div id="gallery" style="display: none;">
+        <h2>Gallery</h2>
+        <div class="gallery-container">
+          <img src="images/drawing1.jpg" alt="Drawing 1" />
+          <img src="images/drawing2.jpg" alt="Drawing 2" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const passwordForm = document.getElementById('password-form');
+    const gallery = document.getElementById('gallery');
+
+    passwordForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const passwordInput = document.getElementById('password').value;
+
+      const correctPassword = 'upenn'; // Change this password as needed
+      
+      if (passwordInput === correctPassword) {
+        gallery.style.display = 'block';
+        passwordForm.style.display = 'none';
+      } else {
+        alert('Incorrect password. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>
